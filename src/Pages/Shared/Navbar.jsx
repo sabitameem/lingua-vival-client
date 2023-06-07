@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from '../../assets/downloadlogo.png'
+import logo from '../../assets/download.png'
 
 const Navbar = () => {
 //    const {user,logOut}= useContext(AuthContext)
@@ -9,12 +9,12 @@ const Navbar = () => {
 //       .then()
 //       .catch((error) => console.log(error));
 //   };
-const user = false;
+const user = true;
 
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-      <img className="w-12 h-12" src={logo} alt="" />
+      <Link to="/" ><img className="w-12 lg:w-20 lg:h-20 h-12" src={logo} alt="" /></Link>
         <Link to="/" className="normal-case hidden lg:block text-color-one text-3xl font-semibold">
           <span className="text-color-three">Lingua</span>Viva
         </Link>
@@ -45,11 +45,11 @@ const user = false;
             <Link to="/">Home</Link>
             <Link to="/instructors">Instructors</Link>
             <Link to="/classes">Classes</Link>
-            <Link to="/dashboard">Dashboard</Link>
+            
             
             {(user) &&
-            
-            <button  className="btn btn-ghost  lg:btn-md">Log Out</button>}
+            <div className=""><Link to="/dashboard">Dashboard</Link><br />
+            <button  className="btn btn-sm btn-ghost  lg:btn-md">Log Out</button></div>}
 
           </ul>
           </div>
@@ -77,8 +77,8 @@ const user = false;
         :
         <>
         <Link className="font-semibold hidden lg:inline mr-4" to="/">Home</Link>
-        <Link className="font-semibold mr-4"  to="/instructors">Instructors</Link>
-            <Link className="font-semibold mr-4"  to="/classes">Classes</Link>
+        <Link className="font-semibold hidden lg:inline mr-4"  to="/instructors">Instructors</Link>
+            <Link className="font-semibold hidden lg:inline mr-4"  to="/classes">Classes</Link>
        <Link to='/login'><button className="btn btn-sm bg-color-four text-color-two hover:bg-color-two hover:text-color-three mr-3 ">LogIn</button></Link>
         </>
 }
