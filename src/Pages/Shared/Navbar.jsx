@@ -12,7 +12,7 @@ const Navbar = () => {
 const user = false;
 
   return (
-    <div className="navbar bg-color-three bg-opacity-25">
+    <div className="navbar">
       <div className="flex-1">
       <Link to="/" ><img className="w-12 lg:w-20 lg:h-20 h-12" src={logo} alt="" /></Link>
         <Link to="/" className=" hidden lg:block text-color-one text-4xl font-bold">
