@@ -9,13 +9,13 @@ const Navbar = () => {
 //       .then()
 //       .catch((error) => console.log(error));
 //   };
-const user = true;
+const user = false;
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-color-three bg-opacity-25">
       <div className="flex-1">
       <Link to="/" ><img className="w-12 lg:w-20 lg:h-20 h-12" src={logo} alt="" /></Link>
-        <Link to="/" className="normal-case hidden lg:block text-color-one text-3xl font-semibold">
+        <Link to="/" className=" hidden lg:block text-color-one text-4xl font-bold">
           <span className="text-color-three">Lingua</span>Viva
         </Link>
       </div>
@@ -49,20 +49,20 @@ const user = true;
             
             {(user) &&
             <div className=""><Link to="/dashboard">Dashboard</Link><br />
-            <button  className="btn btn-sm btn-ghost  lg:btn-md">Log Out</button></div>}
+            <button  className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three mt-4">Log Out</button></div>}
 
           </ul>
           </div>
    
    { user?
        <>
-         <div className="dropdown dropdown-end lg:block hidden mr-3">
+         <div className="dropdown dropdown-end lg:block hidden text-lg mr-3">
          <Link className="font-semibold mr-4"  to="/">Home</Link>
             <Link className="font-semibold mr-4"  to="/instructors">Instructors</Link>
             <Link className="font-semibold mr-4"  to="/classes">Classes</Link>
             
         <Link className="font-semibold m-4" to="/dashboard">Dashboard</Link>
-            <button  className="btn btn-ghost  lg:btn-md">Log Out</button>
+            <button  className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three">Log Out</button>
           
         </div>
         <div className="dropdown dropdown-end flex">

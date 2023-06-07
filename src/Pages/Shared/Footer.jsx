@@ -17,7 +17,7 @@ const Footer = () => {
             <a href="#" className="mr-4 py-2 hover:text-gray-400">Contact</a>
           </nav>
         </div>
-        <hr className="my-4 border-gray-800" />
+        <hr className="my-4 border-gray-400" />
         <div className="text-center">
           <p className="text-sm text-gray-400">© {new Date().getFullYear()} LinguaViva. All rights reserved.</p>
           <p className="text-sm text-gray-400">Designed and developed by LinguaViva Team</p>
