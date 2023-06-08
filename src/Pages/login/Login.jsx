@@ -11,6 +11,15 @@ const Login = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+
+  const handleLogin =event=>{
+    event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password= form.password.value;
+        console.log(email, password)
+  }
+
   return (
     <div>
       <Helmet>
@@ -24,7 +33,7 @@ const Login = () => {
           </div>
           <div className="card  md:w-1/2 max-w-sm  bg-base-100">
             <h2 className="text-3xl font-bold text-center">Login</h2>
-            <form className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Email</span>
