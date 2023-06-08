@@ -18,8 +18,8 @@ import slider7 from '../../assets/slider/young-man-learning-different-languages-
 const Slider = () => {
         
     return (
-        <div className="mt-15 mb-10">
-           {/* <h3 className="text-3xl font-semibold text-color-one text-center mt-10">Our Activities</h3> */}
+        <div className="">
+           <h3 className="text-3xl my-1 font-bold text-color-one text-center mt-0">We care about all of YOU</h3>
            <Swiper slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -27,35 +27,30 @@ const Slider = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper mb-24"
+        className="mySwiper mb-24 mt-10"
            >   
            <SwiperSlide>
-          <img className="h-[200px]" src={slider1} alt="" />
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+          <img className="lg:h-[200px] h-[100px] " src={slider1} alt="" />
         </SwiperSlide>
            <SwiperSlide>
-          <img src={slider2} alt="" />
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+          <img className="lg:h-[200px] h-[100px]" src={slider2} alt="" />
         </SwiperSlide>
            <SwiperSlide>
-          <img src={slider3} alt="" />
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+          <img className="lg:h-[200px] h-[100px] " src={slider3} alt="" />
+        
         </SwiperSlide>
            <SwiperSlide>
-          <img className="h-[200px]" src={slider4} alt="" /> 
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+          <img className="lg:h-[200px] h-[100px]" src={slider4} alt="" /> 
         </SwiperSlide>
            <SwiperSlide>
-          <img className="h-[200px]" src={slider5} alt="" /> 
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+          <img className="lg:h-[200px] h-[100px]" src={slider5} alt="" /> 
         </SwiperSlide>
            <SwiperSlide>
-          <img src={slider6} alt="" />
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+          <img className="lg:h-[200px] h-[100px]" src={slider6} alt="" />
         </SwiperSlide>
            <SwiperSlide>
-          <img src={slider7} alt="" />
-          <h3  className="text-4xl uppercase -mt-16 text-white text-center">Salad</h3>
+
+          <img className="lg:h-[200px] h-[100px]" src={slider7} alt="" /> 
         </SwiperSlide>
            
            
