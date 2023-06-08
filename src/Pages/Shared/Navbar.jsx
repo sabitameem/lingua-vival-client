@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import logo from '../../assets/download.png'
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
-//    const {user,logOut}= useContext(AuthContext)
-//   console.log(user)
-//   const handleLogOut = () => {
-//     logOut()
-//       .then()
-//       .catch((error) => console.log(error));
-//   };
-const user = false;
+   const {user,logOut}= useContext(AuthContext)
+  console.log(user)
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
+
 
   return (
     <div className="navbar">
@@ -21,7 +23,7 @@ const user = false;
       </div>
       <div className="flex-none">
         
-          <div className="md:hidden dropdown dropdown-end">
+          <div className="md:hidden z-40 dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +51,7 @@ const user = false;
             
             {(user) &&
             <div className=""><Link to="/dashboard">Dashboard</Link><br />
-            <button  className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three mt-4">Log Out</button></div>}
+            <button onClick={handleLogOut} className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three mt-4">Log Out</button></div>}
 
           </ul>
           </div>
@@ -62,7 +64,7 @@ const user = false;
             <Link className="font-semibold mr-4"  to="/classes">Classes</Link>
             
         <Link className="font-semibold m-4" to="/dashboard">Dashboard</Link>
-            <button  className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three">Log Out</button>
+            <button onClick={handleLogOut} className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three">Log Out</button>
           
         </div>
         <div className="dropdown dropdown-end flex">

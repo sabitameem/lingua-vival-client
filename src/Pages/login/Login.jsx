@@ -1,15 +1,22 @@
-import React, { useState } from "react";
-import login from "../../assets/login/undraw_sign_up_n6im.svg";
+import React, { useContext, useState } from "react";
+import login from "../../assets/login/undraw_Login_re_4vu2.png";
 import SocialLogin from "../Shared/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { FaGoogle, FaEyeSlash, FaEye } from "react-icons/fa";
+import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+  const {signIn}=useContext(AuthContext)
+  const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
 
   const handleLogin =event=>{
@@ -18,7 +25,26 @@ const Login = () => {
         const email = form.email.value;
         const password= form.password.value;
         console.log(email, password)
+
+        signIn(email,password)
+        .then(result =>{
+            const user =result.user;
+            console.log(user)
+            Swal.fire({
+                title: 'Login Successfully',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
+              navigate(from, { replace: true });
+        
+        })
   }
+
+
 
   return (
     <div>
@@ -34,6 +60,8 @@ const Login = () => {
           <div className="card  md:w-1/2 max-w-sm  bg-base-100">
             <h2 className="text-3xl font-bold text-center">Login</h2>
             <form onSubmit={handleLogin} className="card-body">
+                
+              {/* email */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Email</span>
@@ -42,7 +70,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered w-[300px]"
+                  className="input input-bordered w-[215px] lg:w-[300px]"
                 />
               </div>
              
@@ -58,7 +86,7 @@ const Login = () => {
                     type={passwordVisible ? "text" : "password"}
                     name="password"
                     placeholder="password"
-                    className="input input-bordered w-[490px]"
+                    className="input input-bordered lg:w-[300px]"
                   />
                   <button
                     type="button"
