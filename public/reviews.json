@@ -1,0 +1,41 @@
+
+     [
+      {
+        "name": "John Doe",
+        "rating": 5,
+        "comment": "I had a fantastic experience with this language learning school. The teachers were highly knowledgeable and created a supportive learning environment. Highly recommended!",
+        "date": "2023-05-15"
+      },
+      {
+        "name": "Jane Smith",
+        "rating": 4,
+        "comment": "The language learning school offers a wide range of courses to suit different proficiency levels. The classes were engaging and interactive. Great learning experience!",
+        "date": "2023-05-10"
+      },
+      {
+        "name": "David Johnson",
+        "rating": 3,
+        "comment": "The instructors at the language learning school were decent, but I expected a more structured approach and personalized feedback. Average experience overall.",
+        "date": "2023-05-03"
+      },
+      {
+        "name": "Emily Wilson",
+        "rating": 5,
+        "comment": "I highly recommend this language learning school. The teachers are passionate and dedicated. I feel more confident in my language skills after studying here.",
+        "date": "2023-04-28"
+      },
+      {
+        "name": "Michael Brown",
+        "rating": 2,
+        "comment": "I had high hopes for this language learning school, but unfortunately, I was disappointed. The classes were overcrowded, and it was challenging to get individual attention. Needs improvement.",
+        "date": "2023-04-20"
+      },
+      {
+        "name": "Sarah Davis",
+        "rating": 4,
+        "comment": "I'm glad I chose this language learning school. The teachers were patient and supportive. The curriculum was well-structured, and I enjoyed the interactive exercises.",
+        "date": "2023-04-15"
+      }
+    ]
+ 
+  

@@ -19,7 +19,7 @@ const Slider = () => {
         
     return (
         <div className="">
-           <h3 className="text-3xl my-1 font-bold text-color-one text-center mt-0">We care about all of YOU</h3>
+           <h3 className="text-3xl mt-0 font-bold text-color-one text-center ">We care about all of YOU</h3>
            <Swiper slidesPerView={4}
         spaceBetween={30}
         centeredSlides={true}
@@ -31,6 +31,7 @@ const Slider = () => {
            >   
            <SwiperSlide>
           <img className="lg:h-[200px] h-[100px] " src={slider1} alt="" />
+         
         </SwiperSlide>
            <SwiperSlide>
           <img className="lg:h-[200px] h-[100px]" src={slider2} alt="" />

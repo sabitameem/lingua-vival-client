@@ -27,7 +27,7 @@ const Banner = () => {
             </div>
             {/* animation */}
             <div className=' lg:w-1/2 '>
-               <div className='w-full rounded-lg lg:w-4/5 lg:ml-auto h-56  sm:h-96'>
+               <div className='w-full rounded-lg  mb-20  lg:w-4/5 lg:ml-auto h-56  sm:h-56'>
                 <Lottie animationData={banner}loop={true}></Lottie>
                </div>
             </div>
