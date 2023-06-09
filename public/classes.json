@@ -1,0 +1,73 @@
+[
+    {
+      "image": "https://i.ibb.co/Hqtc78N/Espanol-Translation-Spanish-Language-hand-drawn-doodles-and-lettering-1087621188-7013x4954.jpg",
+      "name": "Spanish 101",
+      "instructor_name": "Maria Martinez",
+      "available_seats": 20,
+      "price": 150
+    },
+    {
+      "image": "https://i.ibb.co/HH6cpL3/images-q-tbn-ANd9-Gc-TGIp-Zk-YPid8e9rf-WZ-LXM1-Jru-NIxpkexqq2-A-usqp-CAU.jpg",
+      "name": "French for Beginners",
+      "instructor_name": "Jean-Luc Dubois",
+      "available_seats": 15,
+      "price": 200
+    },
+    {
+      "image": "https://i.ibb.co/m4V7LC3/deutsch-translation-german-learning-online-600w-1897882375.jpg",
+      "name": "German Conversation",
+      "instructor_name": "Hans Schmidt",
+      "available_seats": 10,
+      "price": 180
+    },
+    {
+      "image": "https://i.ibb.co/WWmQ2hQ/italian-lessons.png",
+      "name": "Italian Grammar",
+      "instructor_name": "Giulia Rossi",
+      "available_seats": 12,
+      "price": 160
+    },
+    {
+      "image": "https://i.ibb.co/5jd3Dyd/a-beginners-guide-how-to-study-the-chinese-language.jpg",
+      "name": "Chinese Calligraphy",
+      "instructor_name": "Li Wei",
+      "available_seats": 18,
+      "price": 220
+    },
+    {
+      "image": "https://i.ibb.co/BgNfhW8/Difference-between-Hiragana-and-Katakana-in-Japanese-Language-870x600.jpg",
+      "name": "Japanese for Travelers",
+      "instructor_name": "Takeshi Nakamura",
+      "available_seats": 14,
+      "price": 190
+    },
+    {
+      "image": "https://i.ibb.co/Kx1pNhz/images-q-tbn-ANd9-Gc-T7j6-X1-LLpc-Qa-Eyq-OVYm-SMDzkp-AXXM6-GCVl6-V1nup29uev0m-N4-Oxj6-CKJt-TJss2-Xcn.jpg",
+      "name": "Russian Literature",
+      "instructor_name": "Olga Ivanova",
+      "available_seats": 28,
+      "price": 175
+    },
+    {
+      "image": "https://i.ibb.co/9WbL4zh/arabic-language-class-at-elite-german-school-schule-der-borromerinnen-B2-REPE.jpg",
+      "name": "Arabic Pronunciation",
+      "instructor_name": "Ahmed Ali",
+      "available_seats": 16,
+      "price": 210
+    },
+    {
+      "image": "https://i.ibb.co/bKfF6XY/Sejong-intensive-class-450x250.jpg",
+      "name": "Korean Pop Culture",
+      "instructor_name": "Min-Ji Kim",
+      "available_seats": 22,
+      "price": 200
+    },
+    {
+      "image": "https://i.ibb.co/b6Jv6qq/portuguese-language-learning-concept-language-school-portuguese-course-277904-16355.jpg",
+      "name": "Portuguese Basics",
+      "instructor_name": "Pedro Oliveira",
+      "available_seats": 15,
+      "price": 170
+    }
+  ]
+  
