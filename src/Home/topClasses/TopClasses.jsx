@@ -3,8 +3,25 @@ import topClasses from "../../assets/topClasses/undraw_Content_structure_re_ebkv
 import doodle from "../../assets/topClasses/clumsy.png";
 import { Typewriter } from 'react-simple-typewriter'
 import { Fade } from "react-awesome-reveal";
+import { useState } from "react";
+import { useEffect } from "react";
+import SingleTopClass from "./SingleTopClass";
 
 const TopClasses = () => {
+    const [classes,setClasses]=useState([])
+
+    useEffect(()=>{
+        //fetch('http://localhost:5000/topclasses')
+        fetch('https://lingua-viva-server.vercel.app/topClasses')
+        .then((res)=>res.json())
+        .then(data=>{
+            console.log(data)
+            setClasses(data)
+        })
+    },[])
+    // data not working properly
+
+
   return (
     <div className="lg:mt-4 mb-6 px-10 py-6">
       <div className="flex justify-center mb-7">
@@ -15,7 +32,6 @@ const TopClasses = () => {
         </h4></Fade>
         <img className="w-[90px] hidden lg:block ml-7" src={doodle} alt="" />
       </div>
-
       <div className="lg:flex  justify-around">
         <div>
           <img className="w-56 lg:w-1/2 mx-auto" src={topClasses} alt="" />
@@ -48,6 +64,20 @@ const TopClasses = () => {
           associated with it.
         </div>
       </div>
+      <div>
+      <img className="mx-auto mt-4" src="https://img.icons8.com/plasticine/100/long-arrow-down.png" alt="long-arrow-down"/>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-10 mt-10">
+      {classes.slice(0,6).map(singleClass=>
+                    <SingleTopClass
+                    key={singleClass._id}
+                    singleClass={singleClass}
+                    ></SingleTopClass>
+                    )}
+      </div>
+
+     
+
     </div>
   );
 };
