@@ -1,27 +1,49 @@
 import React, { useContext, useState } from "react";
 import signUp from "../../assets/login/undraw_sign_up_n6im.svg";
 import SocialLogin from "../Shared/SocialLogin";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
+
+// import { ToastContainer, toast } from "react-toastify";
 
 const SignUp = () => {
-   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
-  console.log(location);
-  const from = location.state?.from || "/";
-  const [error, setError] = useState("");
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const confirmed = form.confirmed.value;
-    const photoURL = form.photo.value;
-    console.log(name, email, password, photoURL, confirmed);
-     createUser(email, password)
+  const [error, setError] = useState('');
+
+  const onSubmit = (data) => {
+    console.log(data);
+    if (data.password !== data.confirmed) {
+      setError("Password does not match");
+      return;
+    }
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          console.log("user profile info updated");
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
+    });
   };
 
   return (
@@ -39,19 +61,22 @@ const SignUp = () => {
             <h2 className="text-3xl font-bold text-center">
               Sign Up Please...
             </h2>
-            <form onSubmit={handleSignUp} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               {/* name */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Name</span>
                 </label>
                 <input
-                  required
                   type="text"
                   name="name"
+                  {...register("name", { required: true })}
                   placeholder="Your Name"
                   className="input input-bordered "
                 />
+                {errors.name && (
+                  <span className="text-red-600">Name is required</span>
+                )}
               </div>
               {/* email */}
               <div className="form-control">
@@ -59,12 +84,15 @@ const SignUp = () => {
                   <span className="label-text font-semibold">Email</span>
                 </label>
                 <input
-                  required
                   type="email"
                   name="email"
+                  {...register("email", { required: true })}
                   placeholder="email"
                   className="input input-bordered "
                 />
+                {errors.email && (
+                  <span className="text-red-600">Email is required</span>
+                )}
               </div>
               {/* password */}
               <div className="form-control">
@@ -72,12 +100,33 @@ const SignUp = () => {
                   <span className="label-text font-semibold">Password</span>
                 </label>
                 <input
-                  required
                   type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="input input-bordered "
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                  })}
+                  placeholder="password"
+                  className="input input-bordered"
                 />
+                {errors.password?.type === "required" && (
+                  <p className="text-red-600">Password is required</p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-600">Password must be 6 characters</p>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <p className="text-red-600">
+                    Password must be less than 20 characters
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-600">
+                    Password must have one Uppercase one lower case, one number
+                    and one special character.
+                  </p>
+                )}
               </div>
               {/* confirm password */}
               <div className="form-control">
@@ -87,25 +136,37 @@ const SignUp = () => {
                   </span>
                 </label>
                 <input
-                  required
                   type="password"
                   name="confirmed"
+                  {...register("confirmed", { required: true })}
                   placeholder="confirm password"
                   className="input input-bordered "
                 />
+                {error && (
+                  <span className="text-red-600">Passwords do not match</span>
+                )}
+                {errors.confirmed && (
+                  <span className="text-red-600">
+                    Confirmed password is required
+                  </span>
+                )}
               </div>
+
               {/* photo URL */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Photo URL</span>
                 </label>
                 <input
-                  required
                   type="text"
                   name="photo"
+                  {...register("photo", { required: true })}
                   placeholder="Photo URL"
                   className="input input-bordered "
                 />
+                {errors.photo && (
+                  <span className="text-red-600">Photo URL is required</span>
+                )}
               </div>
 
               {/* submit button */}
@@ -117,7 +178,7 @@ const SignUp = () => {
                 />
               </div>
             </form>
-            <p className="text-red-500 text-center mt-0">{error}</p>
+
             <p className="text-custom-color text-center">
               Already Have an account?
               <Link to="/login">
