@@ -15,8 +15,8 @@ const TopClasses = () => {
         fetch('https://lingua-viva-server.vercel.app/topClasses')
         .then((res)=>res.json())
         .then(data=>{
-            console.log(data)
-            setClasses(data)
+            const sortedClasses = data.sort((a, b) => b.available_seats - a.available_seats);
+                setClasses(sortedClasses.slice(0, 6));
         })
     },[])
     // data not working properly
@@ -68,7 +68,7 @@ const TopClasses = () => {
       <img className="mx-auto mt-4" src="https://img.icons8.com/plasticine/100/long-arrow-down.png" alt="long-arrow-down"/>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-10 mt-10">
-      {classes.slice(0,6).map(singleClass=>
+      {classes.map(singleClass=>
                     <SingleTopClass
                     key={singleClass._id}
                     singleClass={singleClass}
