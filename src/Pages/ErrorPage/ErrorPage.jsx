@@ -1,9 +1,12 @@
 import React from 'react';
+import errorPicture from '../../assets/error/undraw_Page_not_found_re_e9o6.png'
+import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
-        <div>
-           <h1>this is errorpage</h1> 
+        <div className='w-full text-center'>
+            <img className='mx-auto w-1/2' src={errorPicture} alt="" />
+            <Link to='/'><button className='bg-color-four btn-sm lg:btn-md text-white rounded-lg'>Back to Home Page</button></Link> 
         </div>
     );
 };
