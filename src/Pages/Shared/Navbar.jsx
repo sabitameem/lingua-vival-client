@@ -60,7 +60,7 @@ const Navbar = () => {
    
    { user?
        <>
-         <div className="dropdown dropdown-end lg:block hidden text-lg mr-3">
+         <div className="dropdown dropdown-end md:block hidden text-lg mr-3">
          <Link className="font-semibold mr-4"  to="/">Home</Link>
             <Link className="font-semibold mr-4"  to="/instructors">Instructors</Link>
             <Link className="font-semibold mr-4"  to="/classes">Classes</Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
         </div>
         <div className="dropdown dropdown-end flex">
            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full btn btn-ghost btn-circle avatar">
+            <div className="w-15 rounded-full btn btn-ghost btn-circle avatar">
               <img  src={user.photoURL} />
             </div>
           </label> 
