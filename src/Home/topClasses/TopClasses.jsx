@@ -1,7 +1,6 @@
 import React from "react";
 import topClasses from "../../assets/topClasses/undraw_Content_structure_re_ebkv.png";
 import doodle from "../../assets/topClasses/clumsy.png";
-import { Typewriter } from 'react-simple-typewriter'
 import { Fade } from "react-awesome-reveal";
 import { useState } from "react";
 import { useEffect } from "react";

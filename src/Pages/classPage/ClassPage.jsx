@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import reading from "../../assets/classPage/Open Doodles - Studying.png";
 import SingleClassCard from "./SingleClassCard";
+import { Fade } from "react-awesome-reveal";
 
 const ClassPage = () => {
   const [classes, setClasses] = useState([]);
@@ -19,9 +20,9 @@ const ClassPage = () => {
     <div>
       {/* text */}
       <div className="flex justify-center items-center">
-        <h3 className="text-3xl mb-4 font-semibold text-color-one text-center mt-5">
-          Here is all of your classes..... have a look
-        </h3>
+       <Fade> <h3 className="text-4xl mb-4 font-bold text-color-four text-center mt-5">
+          Here is all of our classes..... have a look
+        </h3></Fade>
         <img
           className="lg:w-[90px] lg:h-[96px] w-[59px] h-[85px] lg:block mr-5 lg:ml-7"
           src={reading}

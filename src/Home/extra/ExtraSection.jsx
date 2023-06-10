@@ -22,7 +22,7 @@ const ExtraSection = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
-  
+
     return (
         <div className='mb-8 '>
            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -30,7 +30,7 @@ const ExtraSection = () => {
           <SwiperSlide key={review._id}>
             <div className="mx-24 my-10 flex flex-col items-center">
             
-              <Rating  style={{ maxWidth: 180 }} value={review.rating} readOnly />
+              <Rating style={{ maxWidth: 180 }}  value={review.rating} readOnly />
               <p className=" text-color-three text-2xl font-bold lg:text-2xl py-6 ">{review.name}</p>
               <FontAwesomeIcon className="lg:w-24 w-12 mr-20 lg:mr-96 h-20 text-black mt-3" icon={faQuoteLeft}  />
 
