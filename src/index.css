@@ -9,4 +9,11 @@
 
 .btn-style{
   @apply btn bg-color-three text-color-two border-b-4 border-b-color-one hover:bg-color-one hover:text-color-two hover:border-b-color-three
-}   
+} 
+
+.drawer-side a.active{
+  color: white;
+}
+.drawer-side a{
+  background-color: transparent;
+}
