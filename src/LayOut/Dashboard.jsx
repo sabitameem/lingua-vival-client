@@ -20,10 +20,12 @@ const Dashboard = () => {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         {/* Page content here */}
+        <div className="mb-20">
         <Outlet></Outlet>
+        </div>
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-sm text-color-two bg-color-four drawer-button lg:hidden"
+          className="btn btn-sm  text-color-two bg-color-four drawer-button lg:hidden"
         >
           Open drawer
         </label>
