@@ -2,51 +2,61 @@
     {
         "instructor_name": "Maria Martinez",
         "available_seats": 20,
+        "instructor_email": "maria.martinez@example.com",
         "instructor_image": "https://i.ibb.co/MCVk6g8/Maria-Martinez-2019-280x280.jpg"
     },
     {
         "instructor_name": "Jean-Luc Dubois",
         "available_seats": 15,
+        "instructor_email": "jeanluc.dubois@example.com",
         "instructor_image": "https://i.ibb.co/7z8XGxB/young-students-sitting-classroom-listening-260nw-2022984971.jpg"
     },
     {
         "instructor_name": "Hans Schmidt",
         "available_seats": 30,
+        "instructor_email": "hans.schmidt@example.com",
         "instructor_image": "https://i.ibb.co/8Y2BDsf/teacher-class-fourth-grade-students-260nw-1728652504.jpg"
     },
     {
         "instructor_name": "Giulia Rossi",
         "available_seats": 12,
+        "instructor_email": "giulia.rossi@example.com",
         "instructor_image": "https://i.ibb.co/1XQvdsP/5ad04aacad8e9508571556.jpg"
     },
     {
         "instructor_name": "Li Wei",
         "available_seats": 18,
+        "instructor_email": "li.wei@example.com",
         "instructor_image": "https://i.ibb.co/jWJgcyQ/japanese-curriculum-16x9.jpg"
     },
     {
         "instructor_name": "Takeshi Nakamura",
         "available_seats": 14,
-        "instructor_image": "https://i.ibb.co/Cvjsr7Z/miyamoto.jpg"
+        "instructor_image": "https://i.ibb.co/Cvjsr7Z/miyamoto.jpg",
+        "instructor_email": "takeshi.nakamura@example.com"
     },
     {
         "instructor_name": "Olga Ivanova",
         "available_seats": 28,
+        "instructor_email": "olga.ivanova@example.com",
         "instructor_image": "https://i.ibb.co/WcHB6WX/inlingua-176-scaled.jpg"
     },
     {
         "instructor_name": "Ahmed Ali",
         "available_seats": 16,
+        "instructor_email": "ahmed.ali@example.com",
         "instructor_image": "https://i.ibb.co/yqzVGxz/arabic-teachers-xpats.jpg"
     },
     {
         "instructor_name": "Min-Ji Kim",
         "available_seats": 22,
+        "instructor_email": "minji.kim@example.com",
         "instructor_image": "https://i.ibb.co/przRV0C/maxresdefault.jpg"
     },
     {
         "instructor_name": "Pedro Oliveira",
         "available_seats": 15,
+        "instructor_email": "pedro.oliveira@example.com",
         "instructor_image": "https://i.ibb.co/CPg9yPH/teacher-home-instructor-portuguese-the-university-york-and-italian-instructor-language-trainers-live.jpg"
     }
 ]
