@@ -65,7 +65,7 @@ const Navbar = () => {
             <Link className="font-semibold mr-4"  to="/instructors">Instructors</Link>
             <Link className="font-semibold mr-4"  to="/classes">Classes</Link>
             
-        <Link className="font-semibold m-4" to="/dashboard/myClass">Dashboard</Link>
+        <Link className="font-semibold m-4" to="/dashboard/welcome">Dashboard</Link>
             <button onClick={handleLogOut} className="btn btn-sm btn-ghost hover:text-color-two hover:bg-color-three">Log Out</button>
           
         </div>

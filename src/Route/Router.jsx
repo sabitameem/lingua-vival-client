@@ -8,6 +8,7 @@ import ClassPage from "../Pages/classPage/ClassPage";
 import InstructorPage from "../Pages/instructorPage/InstructorPage";
 import Dashboard from "../LayOut/Dashboard";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
+import WelcomePage from "../Pages/Dashboard/WelcomePage/WelcomePage";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
         {
           path: 'myClass',
           element: <MyClass></MyClass>
+        },
+        {
+          path: 'welcome',
+          element:<WelcomePage></WelcomePage>
         }
       ]
     }
