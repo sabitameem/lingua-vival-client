@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import SingleInsCard from "./SingleInsCard";
+import { Helmet } from "react-helmet";
 
 const InstructorPage = () => {
   const [instructors, setInstructors] = useState([]);
@@ -14,6 +15,9 @@ const InstructorPage = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Instructors | LinguaViva</title>
+      </Helmet>
       {/* text */}
       <div className="flex justify-center mb-7">
         <Fade>

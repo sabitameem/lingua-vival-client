@@ -28,8 +28,11 @@ const Dashboard = () => {
   // const isInstructor = true;
   // const [isAdmin]=useAdmin()
   // const [isInstructor]=useInstructor()
-  const [isAdmin]=useAdmin()
-  const [isInstructor]=useInstructor()
+  const [isAdmin,isAdminLoading]=useAdmin()
+  const [isInstructor,isInstructorLoading]=useInstructor()
+  if(isAdminLoading || isInstructorLoading){
+    return <p>loading</p>
+  }
 
   return (
     <div className="drawer lg:drawer-open">

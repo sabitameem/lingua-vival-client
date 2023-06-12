@@ -10,6 +10,9 @@ import Dashboard from "../LayOut/Dashboard";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import WelcomePage from "../Pages/Dashboard/WelcomePage/WelcomePage";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +44,7 @@ export const router = createBrowserRouter([
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
           path: 'myClasses',
@@ -53,7 +56,11 @@ export const router = createBrowserRouter([
         },
         {
           path:'allUsers',
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path:'payment',
+          element: <Payment></Payment>
         }
       ]
     }

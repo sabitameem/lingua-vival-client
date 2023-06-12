@@ -4,6 +4,7 @@ import { useState } from "react";
 import reading from "../../assets/classPage/Open Doodles - Studying.png";
 import SingleClassCard from "./SingleClassCard";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 const ClassPage = () => {
   const [classes, setClasses] = useState([]);
@@ -18,8 +19,12 @@ const ClassPage = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Classes | LinguaViva</title>
+      </Helmet>
       {/* text */}
       <div className="flex justify-center items-center">
+        
        <Fade> <h3 className="text-4xl mb-4 font-bold text-color-four text-center mt-5">
           Here is all of our classes..... have a look
         </h3></Fade>
