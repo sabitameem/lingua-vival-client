@@ -2,26 +2,61 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import useClasses from "../../../hooks/useClasses";
 import { Link } from "react-router-dom";
-import {
-  FaTrashAlt,
-} from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyClass = () => {
   const [selectedClasses, refetch] = useClasses();
   console.log(selectedClasses);
   const total = selectedClasses.reduce((sum, item) => item.price + sum, 0);
+  // delete function
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/classes/${item._id}`,{
+             method: 'DELETE'
+        })
+        //fetch(`https://lingua-viva-server.vercel.app/classes/${item._id}`,
+        // {
+        //   method: 'DELETE'
+        // })
+        .then(res => res.json())
+        .then(data=>{
+          if (data.deletedCount > 0) {
+            refetch();
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+          )
+          }
+        })
+
+      }
+    });
+  };
+
   return (
     <div>
       <Helmet>
         <title>My Classes | LinguaViva</title>
       </Helmet>
       <div className=" divider  mt-3"></div>
-      <h3 className="text-3xl text-center  font-semibold">
-        My Selected Classes : {selectedClasses.length} & Total Price : ${total}
+      <h3 className="lg:text-3xl text-xl  font-semibold">
+        My Selected Classes : {selectedClasses.length} &{" "}
+        <br className="lg:hidden" /> Total Price : ${total}
       </h3>
       <div className=" divider mb-4"></div>
 
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-auto">
         <table className="table w-full">
           {/* head */}
           <thead>
@@ -52,11 +87,16 @@ const MyClass = () => {
                 <td className="">${item.price}</td>
                 <td>
                   <Link>
-                    <button className="btn btn-warning btn-sm">PAY</button>
+                    <button className="btn bg-color-four text-color-two hover:border-color-four hover:text-color-four btn-sm">
+                      PAY
+                    </button>
                   </Link>
                 </td>
                 <td>
-                  <button className="btn btn-ghost bg-red-600  text-white">
+                  <button
+                    onClick={() => handleDelete(item)}
+                    className="btn btn-ghost bg-red-600  text-white"
+                  >
                     <FaTrashAlt></FaTrashAlt>
                   </button>
                 </td>
