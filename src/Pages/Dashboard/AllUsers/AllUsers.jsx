@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
-    const res = await fetch("http://localhost:5000/users");
-    return res.json();
+    // const res = await fetch("http://localhost:5000/users");
+    // return res.json();
+    const res =await axiosSecure.get('/users')
+    return res.data
   });
 
   
@@ -56,10 +60,7 @@ const AllUsers = () => {
   }
 
 
-  const handleDelete = user => {
-
-  }
-
+  
 
 
   return (
@@ -79,7 +80,7 @@ const AllUsers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
-              <th>Action</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -100,14 +101,7 @@ const AllUsers = () => {
                     <button onClick={()=> handleMakeInstructor(user)} className="btn btn-sm w-[120px] bg-color-three text-color-two hover:bg-color-two hover:border-color-three hover:text-color-three" >Instructor</button>
                   )}
                 </td>
-                <td>
-                  <button
-                    onClick={() => handleDelete(user)}
-                    className="btn btn-ghost bg-red-600  text-white"
-                  >
-                    <FaTrashAlt></FaTrashAlt>
-                  </button>
-                </td>
+                
               </tr>
             ))}
           </tbody>

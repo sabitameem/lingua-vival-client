@@ -15,14 +15,21 @@ import {
   FaWallet,
 } from "react-icons/fa";
 import useClasses from "../hooks/useClasses";
+import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
+
 
 const Dashboard = () => {
 
   const [selectedClasses]=useClasses()
 
   // TODO:
-  const isAdmin=true;
-  const isInstructor = false;
+  // const isAdmin=false;
+  // const isInstructor = true;
+  // const [isAdmin]=useAdmin()
+  // const [isInstructor]=useInstructor()
+  const [isAdmin]=useAdmin()
+  const [isInstructor]=useInstructor()
 
   return (
     <div className="drawer lg:drawer-open">
