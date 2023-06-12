@@ -31,7 +31,7 @@ const Dashboard = () => {
   const [isAdmin,isAdminLoading]=useAdmin()
   const [isInstructor,isInstructorLoading]=useInstructor()
   if(isAdminLoading || isInstructorLoading){
-    return <p>loading</p>
+    return <progress className="progress w-56"></progress>
   }
 
   return (
@@ -39,7 +39,7 @@ const Dashboard = () => {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         {/* Page content here */}
-        <div className="mb-20">
+        <div className="mb-20 w-full text-center">
         <Outlet></Outlet>
         </div>
         <label
