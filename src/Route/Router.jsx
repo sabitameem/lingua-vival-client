@@ -9,6 +9,7 @@ import InstructorPage from "../Pages/instructorPage/InstructorPage";
 import Dashboard from "../LayOut/Dashboard";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import WelcomePage from "../Pages/Dashboard/WelcomePage/WelcomePage";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -43,12 +44,16 @@ export const router = createBrowserRouter([
       element: <Dashboard></Dashboard>,
       children:[
         {
-          path: 'myClass',
+          path: 'myClasses',
           element: <MyClass></MyClass>
         },
         {
           path: 'welcome',
           element:<WelcomePage></WelcomePage>
+        },
+        {
+          path:'allUsers',
+          element: <AllUsers></AllUsers>
         }
       ]
     }

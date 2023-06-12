@@ -4,6 +4,7 @@ import {
   FaBook,
   FaBookReader,
   FaChalkboardTeacher,
+  FaFlipboard,
   FaHistory,
   FaHome,
   FaPage4,
@@ -19,6 +20,10 @@ const Dashboard = () => {
 
   const [selectedClasses]=useClasses()
 
+  // TODO:
+  const isAdmin=true;
+  const isInstructor = false;
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -29,7 +34,7 @@ const Dashboard = () => {
         </div>
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-sm  text-color-two bg-color-four drawer-button lg:hidden"
+          className="btn btn-sm flex justify-center items-center mx-auto w-[200px] text-color-two bg-color-four drawer-button lg:hidden"
         >
           Open drawer
         </label>
@@ -38,8 +43,57 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full text-lg bg-color-three text-color-two">
           {/* Sidebar content here */}
-          {/* users start */}
+        
+        {isAdmin ? (<>{/* admin start */}
           <li>
+            <NavLink to='/dashboard/allUsers'>
+              <FaUserFriends></FaUserFriends>All Users
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/dashboard/manageClasses'>
+              <FaFlipboard></FaFlipboard> Manage Classes
+            </NavLink>
+          </li>
+          {/* admin end */}</>) : isInstructor? (<>{/* instructor start */}
+          <li>
+            <NavLink to='/dashboard/addAClass'>
+              <FaUpload></FaUpload> Add a class
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/dashboard/addedClasses'>
+              <FaSistrix></FaSistrix> Added Classes
+            </NavLink>
+          </li>
+
+          {/* normal */}</> ): (<>  {/* users start */}
+          <li>
+            <NavLink to="/dashboard/myClasses">
+              <FaBook></FaBook> My Classes <span className="badge inl badge-color-two">+{selectedClasses?.length || 0}</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/dashboard/enrolledClasses'>
+              <FaBookReader></FaBookReader>
+              My Enrolled Classes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/dashboard/payment'>
+              <FaWallet></FaWallet> Payment
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/dashboard/history'>
+              <FaHistory></FaHistory>Payment History
+            </NavLink>
+          </li>
+          {/* users end */}</>)}
+
+
+          {/* users start */}
+          {/* <li>
             <NavLink to="/dashboard/myClass">
               <FaBook></FaBook> My Classes <span className="badge inl badge-color-two">+{selectedClasses?.length || 0}</span>
             </NavLink>
@@ -59,24 +113,24 @@ const Dashboard = () => {
             <NavLink>
               <FaHistory></FaHistory>Payment History
             </NavLink>
-          </li>
+          </li> */}
           {/* users end */}
 
           {/* admin start */}
-          <li>
-            <NavLink>
-              <FaUser></FaUser>Manage Users
+          {/* <li>
+            <NavLink to='/dashboard/allUsers'>
+              <FaUserFriends></FaUserFriends>All Users
             </NavLink>
           </li>
           <li>
             <NavLink>
-              <FaUserFriends></FaUserFriends> Manage Classes
+              <FaFlipboard></FaFlipboard> Manage Classes
             </NavLink>
-          </li>
+          </li> */}
           {/* admin end */}
 
           {/* instructor start */}
-          <li>
+          {/* <li>
             <NavLink>
               <FaUpload></FaUpload> Add a class
             </NavLink>
@@ -85,7 +139,7 @@ const Dashboard = () => {
             <NavLink>
               <FaSistrix></FaSistrix> Added Classes
             </NavLink>
-          </li>
+          </li> */}
 
           {/* normal */}
 

@@ -18,7 +18,7 @@ const SignUp = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -31,16 +31,28 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info updated");
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User created successfully.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          const saveUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
@@ -157,16 +169,8 @@ const SignUp = () => {
                 <label className="label">
                   <span className="label-text font-semibold">Photo URL</span>
                 </label>
-                <input
-                  type="text"
-                  name="photo"
-                  {...register("photo", { required: true })}
-                  placeholder="Photo URL"
-                  className="input input-bordered "
-                />
-                {errors.photo && (
-                  <span className="text-red-600">Photo URL is required</span>
-                )}
+                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                                {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
               </div>
 
               {/* submit button */}
