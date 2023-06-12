@@ -13,8 +13,12 @@ import {
   FaUserFriends,
   FaWallet,
 } from "react-icons/fa";
+import useClasses from "../hooks/useClasses";
 
 const Dashboard = () => {
+
+  const [selectedClasses]=useClasses()
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -37,7 +41,7 @@ const Dashboard = () => {
           {/* users start */}
           <li>
             <NavLink to="/dashboard/myClass">
-              <FaBook></FaBook> My Classes
+              <FaBook></FaBook> My Classes <span className="badge inl badge-color-two">+{selectedClasses?.length || 0}</span>
             </NavLink>
           </li>
           <li>
