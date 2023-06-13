@@ -22,7 +22,7 @@ const MyClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/classes/${item._id}`, {
+        fetch(`https://lingua-viva-server-sabitameem.vercel.app/classes/${item._id}`, {
           method: "DELETE",
         })
           //fetch(`https://lingua-viva-server.vercel.app/classes/${item._id}`,
@@ -39,10 +39,10 @@ const MyClass = () => {
       }
     });
   };
-  const handlePayment=item=>{
-    console.log(item.price)
-    window.location.href = `/dashboard/payment?price=${item.price}`;
-  }
+  // const handlePayment=item=>{
+    
+  //   window.location.href = `/dashboard/payment?singleSelectedClass=${item}`;
+  // }
 
   return (
     <div>
@@ -87,12 +87,10 @@ const MyClass = () => {
                 <td className="">${item.price}</td>
                 <td>
                   <Link
-                    to={{
-                      pathname: "/dashboard/payment",
-                      
-                    }}
+                   to='/dashboard/payment'
+                    state={item}
                   >
-                    <button onClick={()=>handlePayment(item)} className="btn bg-color-four text-color-two hover:border-color-four hover:text-color-four btn-sm">
+                    <button className="btn bg-color-four text-color-two hover:border-color-four hover:text-color-four btn-sm">
                       PAY
                     </button>
                   </Link>

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import './CheckOutForm.css'
+import Swal from 'sweetalert2';
 
-const CheckoutForm = ({selectedClasses,price}) => {
+const CheckoutForm = ({singleSelectedClass}) => {
     const stripe =useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -16,14 +17,14 @@ const CheckoutForm = ({selectedClasses,price}) => {
 
 
     useEffect(() => {
-        if (price > 0) {
-            axiosSecure.post('/create-payment-intent', { price })
+        if (singleSelectedClass?.price > 0) {
+            axiosSecure.post('/create-payment-intent', {price: singleSelectedClass?.price })
             .then(res => {
                 console.log(res.data.clientSecret)
                 setClientSecret(res.data.clientSecret);
             })
         }
-    }, [price])
+    }, [singleSelectedClass?.price])
 
     const handleSubmit=async(event)=>{
         event.preventDefault();
@@ -71,23 +72,45 @@ const CheckoutForm = ({selectedClasses,price}) => {
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
-            // const payment = {
-            //     email: user?.email,
-            //     transactionId: paymentIntent.id,
-            //     price,
-            //     date: new Date(),
-            //     selectedClassId: selectedClasses.map(item => item._id),
-            //     classId: selectedClasses.map(item => item.menuItemId),
-            //     status: 'service pending',
-            //     className: selectedClasses.map(item => item.name)
-            // }
-            // axiosSecure.post('/payments', payment)
+             const payment = {
+                 email: user?.email,
+                 transactionId: paymentIntent.id,
+                 price : singleSelectedClass?.price,
+                 date: new Date(),
+                 selectedClassId: singleSelectedClass._id,
+                 classId: singleSelectedClass.classId,
+                 status: 'service pending',
+                className: singleSelectedClass.name
+             }
+             axiosSecure.post('/payments',payment)
+             .then(res=>{
+              console.log(res.data);
+              if(res.data.insertedId){
+                Swal.fire({
+                             position: "center",
+                             icon: "success",
+                             title: "Payment Success",
+                             showConfirmButton:false,
+                             timer: 1000
+      
+                           })
+              }
+             })
+            //  axiosSecure.post('/payments', payment)
             // .then(res => {
-            //     console.log(res.data);
-            //     if (res.data.result.insertedId) {
+            //      console.log(res.data);
+            //      if (res.data.result.insertedId) {
             //         // display confirm
-            //     }
-            // })
+            //         Swal.fire({
+            //           position: "center",
+            //           icon: "success",
+            //           title: "Payment Success",
+            //           showConfirmButton:false,
+            //           timer: 1000
+
+            //         })
+            //      }
+            //  })
         }
 
     }

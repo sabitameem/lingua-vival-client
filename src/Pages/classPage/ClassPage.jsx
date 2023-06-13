@@ -10,8 +10,8 @@ const ClassPage = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/topclasses')
-    //fetch("https://lingua-viva-server.vercel.app/topClasses")
+    //fetch('http://localhost:5000/topclasses')
+    fetch("https://lingua-viva-server.vercel.app/topClasses")
       .then((res) => res.json())
       .then((data) => {
         setClasses(data);

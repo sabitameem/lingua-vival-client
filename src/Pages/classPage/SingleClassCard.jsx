@@ -18,7 +18,7 @@ const SingleClassCard = ({classCard}) => {
       console.log(classCard)
       if(user && user.email){
         const selectedClass = {classId: _id, name, image, available_seats, price, email: user.email}
-        fetch('http://localhost:5000/classes',{
+        fetch('https://lingua-viva-server-sabitameem.vercel.app/classes',{
           method: 'POST',
                 headers: {
                     'content-type': 'application/json'

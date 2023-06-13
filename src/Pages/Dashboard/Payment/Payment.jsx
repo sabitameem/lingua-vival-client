@@ -12,8 +12,12 @@ const Payment = () => {
     const [selectedClasses]=useClasses()
     console.log(selectedClasses)
     const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const price = searchParams.get("price");
+    // const searchParams = new URLSearchParams(location.search);
+     const singleSelectedClass = location.state
+     //const {item} =useLocation();
+
+     console.log(singleSelectedClass)
+
     
     
   return (
@@ -27,7 +31,7 @@ const Payment = () => {
       <h4 className="lg:text-4xl text-xl font-bold text-color-one">Pa<span className="text-color-four">y</span>ment</h4>
       
       <Elements stripe={stripePromise}>
-        <CheckoutForm selectedClasses={selectedClasses} price={price}></CheckoutForm>
+        <CheckoutForm singleSelectedClass={singleSelectedClass}></CheckoutForm>
       </Elements>
       
       
