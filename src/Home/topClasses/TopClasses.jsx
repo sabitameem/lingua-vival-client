@@ -14,7 +14,7 @@ const TopClasses = () => {
         fetch('https://lingua-viva-server.vercel.app/topClasses')
         .then((res)=>res.json())
         .then(data=>{
-            const sortedClasses = data.sort((a, b) => b.available_seats - a.available_seats);
+            const sortedClasses = data.sort((a, b) => b.enrolled - a.enrolled);
                 setClasses(sortedClasses.slice(0, 6));
         })
     },[])

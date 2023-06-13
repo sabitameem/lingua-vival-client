@@ -76,7 +76,7 @@ const CheckoutForm = ({singleSelectedClass}) => {
                  email: user?.email,
                  transactionId: paymentIntent.id,
                  price : singleSelectedClass?.price,
-                 date: new Date(),
+                 date: new Date().toISOString().substring(0,10),
                  selectedClassId: singleSelectedClass._id,
                  classId: singleSelectedClass.classId,
                  status: 'service pending',

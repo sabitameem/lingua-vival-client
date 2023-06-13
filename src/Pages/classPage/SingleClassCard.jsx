@@ -3,15 +3,19 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useClasses from '../../hooks/useClasses';
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useInstructor';
 
 
 const SingleClassCard = ({classCard}) => {
     const cardClasses = classCard.available_seats === 0 ? 'card card-compact lg:w-96 w-full bg-color-two mb-5 shadow-xl bg-red-500' : 'card card-compact lg:w-96 w-full bg-color-two mb-5 shadow-xl';
-    const { name, image, available_seats, instructor_name,_id,price } = classCard;
+    const { name, image, available_seats, instructor_name,_id,price,enrolled } = classCard;
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
     const location =useLocation();
     const [, refetch] = useClasses();
+    const [isAdmin]=useAdmin()
+    const [isInstructor]=useInstructor()
 
 
     const handleAddToCart = classCard => {
@@ -73,7 +77,9 @@ const SingleClassCard = ({classCard}) => {
         <h4 className='text-color-three lg:text-xl text-lg font-medium '>Instructor Name : <span className='font-semibold text-color-four'>{instructor_name}</span> </h4>
         <p className='text-color-three lg:text-xl text-lg font-medium'>Available Seat : {available_seats}</p>
         <p className='text-color-three lg:text-xl text-lg font-medium'>Course fee : ${price}</p>
-        <button onClick={() => handleAddToCart(classCard)} className='mt-6 btn btn-sm w-[150px] mx-auto bg-color-three text-color-two hover:bg-color-two hover:text-color-three hover:border-color-three' disabled={available_seats === 0}>Select</button>
+        <p className='text-color-three lg:text-xl text-lg font-medium'>Enrolled : {enrolled}</p>
+        <button onClick={() => handleAddToCart(classCard)} className='mt-6 btn btn-sm w-[150px] mx-auto bg-color-three text-color-two hover:bg-color-two hover:text-color-three hover:border-color-three'
+         disabled={available_seats === 0 || (isAdmin || isInstructor)}>Select</button>
         
         
       </div>

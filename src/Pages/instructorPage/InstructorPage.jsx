@@ -7,6 +7,7 @@ const InstructorPage = () => {
   const [instructors, setInstructors] = useState([]);
 
   useEffect(() => {
+    //fetch("http://localhost:5000/instructors")
     fetch("https://lingua-viva-server.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
@@ -32,7 +33,7 @@ const InstructorPage = () => {
           alt="external-teacher-online-learning-vitaliy-gorbachev-lineal-color-vitaly-gorbachev-1"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-20 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ml-5 lg:mx-20 mt-12">
         {
             instructors.map(singleIns => <SingleInsCard key={singleIns._id} singleIns={singleIns}></SingleInsCard>)
         }

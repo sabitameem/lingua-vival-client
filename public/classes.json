@@ -4,6 +4,7 @@
       "name": "Spanish 101",
       "instructor_name": "Maria Martinez",
       "available_seats": 20,
+      "enrolled": 53,
       "price": 150
     },
     {
@@ -11,6 +12,7 @@
       "name": "French for Beginners",
       "instructor_name": "Jean-Luc Dubois",
       "available_seats": 15,
+      "enrolled": 23,
       "price": 200
     },
     {
@@ -18,6 +20,7 @@
       "name": "German Conversation",
       "instructor_name": "Hans Schmidt",
       "available_seats": 30,
+      "enrolled": 38,
       "price": 180
     },
     {
@@ -25,6 +28,7 @@
       "name": "Italian Grammar",
       "instructor_name": "Giulia Rossi",
       "available_seats": 12,
+      "enrolled": 46,
       "price": 160
     },
     {
@@ -32,6 +36,7 @@
       "name": "Chinese Calligraphy",
       "instructor_name": "Li Wei",
       "available_seats": 18,
+      "enrolled": 19,
       "price": 220
     },
     {
@@ -39,6 +44,7 @@
       "name": "Japanese for Travelers",
       "instructor_name": "Takeshi Nakamura",
       "available_seats": 14,
+      "enrolled": 58,
       "price": 190
     },
     {
@@ -46,6 +52,7 @@
       "name": "Russian Literature",
       "instructor_name": "Olga Ivanova",
       "available_seats": 28,
+      "enrolled": 44,
       "price": 175
     },
     {
@@ -53,6 +60,7 @@
       "name": "Arabic Pronunciation",
       "instructor_name": "Ahmed Ali",
       "available_seats": 16,
+      "enrolled": 52,
       "price": 210
     },
     {
@@ -60,6 +68,7 @@
       "name": "Korean Pop Culture",
       "instructor_name": "Min-Ji Kim",
       "available_seats": 22,
+      "enrolled": 29,
       "price": 200
     },
     {
@@ -67,6 +76,7 @@
       "name": "Portuguese Basics",
       "instructor_name": "Pedro Oliveira",
       "available_seats": 15,
+      "enrolled": 18,
       "price": 170
     }
   ]
