@@ -14,7 +14,7 @@ const EnrolledClasses = () => {
         setEnrolledClass(data);
       });
   }, []);
-  
+  console.log('enrolled',enrolledClass)
   return (
     <div>
       <Helmet>
