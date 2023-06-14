@@ -11,7 +11,7 @@ const TopInstructors = () => {
         fetch('https://lingua-viva-server.vercel.app/instructors')
         .then(res=> res.json())
         .then(data=>{
-            const sortedIns = data.sort((a, b) => b.available_seats - a.available_seats);
+            const sortedIns = data.sort((a, b) => b.enrolled - a.enrolled);
             setInstructors(sortedIns.slice(0, 6))
         })
     },[])
