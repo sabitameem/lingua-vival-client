@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import useAuth from "../../../hooks/useAuth";
 
 const EnrolledClasses = () => {
     const [enrolledClass, setEnrolledClass] = useState([]);
+    const {user} =useAuth()
 
   useEffect(() => {
     
-    //fetch("http://localhost:5000/payments")
-      fetch("https://lingua-viva-server.vercel.app/payments")
+    //fetch(`http://localhost:5000/payments/${user?.email}`)
+      fetch(`https://lingua-viva-server.vercel.app/payments/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log('enrolled classes', data)

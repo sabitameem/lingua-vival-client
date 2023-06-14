@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import useAuth from "../../../hooks/useAuth";
 
 const PaymentHistory = () => {
   const [histories, setHistories] = useState([]);
+  const {user} =useAuth()
+  console.log(user)
 
   useEffect(() => {
    
-    //fetch("http://localhost:5000/payments")
-      fetch("https://lingua-viva-server.vercel.app/payments")
+    //fetch(`http://localhost:5000/payments/${user?.email}`)
+      fetch(`https://lingua-viva-server.vercel.app/payments/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setHistories(data);
