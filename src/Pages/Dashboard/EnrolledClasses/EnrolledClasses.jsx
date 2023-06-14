@@ -5,7 +5,7 @@ const EnrolledClasses = () => {
     const [enrolledClass, setEnrolledClass] = useState([]);
 
   useEffect(() => {
-    // TODO : two different amount
+    
     //fetch("http://localhost:5000/payments")
       fetch("https://lingua-viva-server.vercel.app/payments")
       .then((res) => res.json())
